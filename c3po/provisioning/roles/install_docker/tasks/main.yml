@@ -1,0 +1,22 @@
+---
+  - name: Install docker
+    shell: curl https://get.docker.com | sh
+
+  - name: Modify privilege
+    become: true
+    shell: usermod -aG docker $USER
+
+  - name: Change privilege of docker
+    become: true
+    file: dest=/usr/bin/docker mode=+x
+
+  - name: Start docker service
+    service:
+      name: docker
+      state: started
+
+  - name: Install docker python module
+    pip:
+      name:
+        - docker
+        - docker-compose

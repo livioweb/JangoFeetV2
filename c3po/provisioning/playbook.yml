@@ -1,0 +1,35 @@
+---
+- hosts: c3po
+  user: vagrant
+  pre_tasks:
+    - name: Set discovered Ansible Python interpreter.
+      set_fact:
+        ansible_python_interpreter: "/usr/bin/python3"
+      when: ansible_python_interpreter is not defined
+  ignore_errors: false
+  no_log: false
+  become_method: sudo
+  roles:
+    - update_os
+    - install_docker
+    - install_ansible
+    #- install_docker_compose
+
+  tasks:
+    #- name: Update and upgrade apt packages
+    #  become: true
+    #  apt:
+    #    upgrade: true
+    #    update_cache: true
+    #    cache_valid_time: 86400 #One day
+
+    #- name: Install required system packages
+    #  apt: name={{ item }} state=latest update_cache=yes
+    #  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common']
+    #  become: yes
+
+    #- name: Update OS
+    #  package:
+    #    name: '*'
+    #    state: latest
+    #  become: yes

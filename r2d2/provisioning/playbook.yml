@@ -1,0 +1,24 @@
+---
+- hosts: r2d2
+  user: vagrant
+  pre_tasks:
+    - name: Set discovered Ansible Python interpreter.
+      set_fact:
+        ansible_python_interpreter: "/usr/bin/python3"
+      when: ansible_python_interpreter is not defined
+  ignore_errors: false
+  no_log: false
+  become_method: sudo
+  roles:
+    - update_os
+    - install_docker
+    - install_ansible
+    #- disable_swap
+    #- install_kubs
+    #- init_cluster
+    #- config_user_vagrant_cluster
+    #- install_calico
+    #- generate_kube_join
+
+  #handles:
+  #  - config_user_vagrant_cluster

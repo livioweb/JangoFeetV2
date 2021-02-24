@@ -1,0 +1,22 @@
+Host c3po
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /home/anakin/Projects/VagrantAnsible/.vagrant/machines/c3po/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+
+Host r2d2
+  HostName 127.0.0.1
+  User vagrant
+  Port 2200
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /home/anakin/Projects/VagrantAnsible/.vagrant/machines/r2d2/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+

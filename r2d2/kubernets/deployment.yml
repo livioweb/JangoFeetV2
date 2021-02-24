@@ -1,0 +1,10 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+        name: hello-nginx
+spec:
+        template:
+                metadata:
+                        labels:
+

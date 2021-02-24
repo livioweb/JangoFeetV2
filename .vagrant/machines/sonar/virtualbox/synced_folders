@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/sonar":{"guestpath":"/home/vagrant/sonar","hostpath":"/home/anakin/Projects/VagrantAnsible/sonar","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/anakin/Projects/VagrantAnsible","disabled":false,"__vagrantfile":true}}}
