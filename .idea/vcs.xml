@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/My_App" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ansible_file_deploy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/aracnor_l" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/groovy/pipiline-librarys" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/myappapi" vcs="Git" />
   </component>
 </project>

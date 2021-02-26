@@ -1,0 +1,100 @@
+pipeline {
+
+    environment {
+        registry = "liviorodrigues/apimyhome"
+        registryCredential = 'docker_hub_my_app_api'
+        dockerImage = 'apimyhome'
+    }
+    agent any
+
+    stages {
+
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+              }
+        }
+
+        stage('Cloning Git') {
+            steps {
+                git branch: 'master',
+                credentialsId: 'user_pass_gitlab',
+                url: 'http://172.17.177.120:10080/root/aracnor_l.git'
+              }
+         }
+
+        stage('Build JAR') {
+          steps {
+
+            sh "mvn -B -DskipTests clean package"
+            //stash name:"jar", includes:"target/myappapi-0.0.1-SNAPSHOT.jar"
+            //stash name:"jar", includes:"target/myappapi-0.0.0-SNAPSHOT.jar"
+
+          }
+        }
+            stage('Test') {
+        steps {
+            sh 'mvn test'
+          }
+          post {
+            always {
+              junit 'target/surefire-reports/*.xml'
+            }
+          }
+        }
+
+        stage('SonarQube Analysis') {
+          steps {
+            withSonarQubeEnv('sonar_aracnos') {
+                    sh "mvn sonar:sonar -Dsonar.projectKey=aracnor_l -Dsonar.host.url=http://172.17.177.140"
+            }
+          }
+        }
+
+        stage("Quality Gate") {
+            steps {
+                withSonarQubeEnv('sonar_aracnos') {
+                    sh 'mvn -B -X sonar:sonar'
+                    timeout(time: 10, unit: 'MINUTES') {
+                        waitForQualityGate abortPipeline: false
+                    }
+                }
+            }
+          }
+
+        stage('Building image') {
+          steps{
+            script {
+              dockerImage = docker.build(registry + ":$BUILD_NUMBER" )
+              sh 'docker build -t liviorodrigues/apimyhome":$BUILD_NUMBER" . '
+
+            }
+          }
+        }
+
+        stage('Register Image') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                }
+            }
+          }
+        }
+
+        stage('Deploy Ansible') {
+            steps {
+                sh "ansible-playbook -i hosts app_provisioning.yml --extra-vars REGISTER='$BUILD_NUMBER' -vv"
+                //sh "ansible-playbook -i hosts app_provisioning.yml "
+            }
+        }
+
+        stage('Notify GitLab') {
+        steps {
+            echo 'Notify GitLab'
+//updateGitlabCommitStatus name: 'build', state: 'pending'
+            updateGitlabCommitStatus name: 'build', state: 'success'
+        }
+    }
+  }
+}
