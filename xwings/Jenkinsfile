@@ -105,6 +105,7 @@ pipeline {
                         script{
                             stage ('Only Rollback: ' + rollback) {
                                 dir("deploy"){
+                                    gitCloneFrom('master','user_pass_gitlab','http://172.17.177.120:10080/root/ansible_file_deploy.git' )
                                     deployWithBuildNumber(rollback)
                                 }
                             }

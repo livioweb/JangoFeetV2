@@ -6,6 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.ssh.insert_key = true
+  #config.disksize.size = '20GB'
 
   config.vm.define "r2d2" do |r2d2|
     r2d2.vm.box = "ubuntu/bionic64"
@@ -40,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             v.customize [
                 "modifyvm", :id,
                 "--name", "bb8",
-                "--memory", 512,
+                "--memory", 1024,
                 "--natdnshostresolver1", "on",
                 "--cpus", 1,
             ]
@@ -202,6 +203,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             sonar.limit = "sonar"
          end
   end
-
 end
 

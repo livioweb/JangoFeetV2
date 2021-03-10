@@ -639,3 +639,60 @@ c3po login:                                                                     
 [284055.635643]   jiffies              <1043a723d>
 [284055.635643]   next_to_watch.status <0>
 [284055.665268] e1000 0000:00:03.0 enp0s3: Reset adapter
+[865645.310082] e1000 0000:00:03.0 enp0s3: Detected Tx Unit Hang
+[865645.310082]   Tx Queue             <0>
+[865645.310082]   TDH                  <94>
+[865645.310082]   TDT                  <98>
+[865645.310082]   next_to_use          <98>
+[865645.310082]   next_to_clean        <94>
+[865645.310082] buffer_info[next_to_clean]
+[865645.310082]   time_stamp           <10ce5057f>
+[865645.310082]   next_to_watch        <97>
+[865645.310082]   jiffies              <10ce508e8>
+[865645.310082]   next_to_watch.status <0>
+[865647.709660] e1000 0000:00:03.0 enp0s3: Detected Tx Unit Hang
+[865647.709660]   Tx Queue             <0>
+[865647.709660]   TDH                  <94>
+[865647.709660]   TDT                  <98>
+[865647.709660]   next_to_use          <98>
+[865647.709660]   next_to_clean        <94>
+[865647.709660] buffer_info[next_to_clean]
+[865647.709660]   time_stamp           <10ce5057f>
+[865647.709660]   next_to_watch        <97>
+[865647.709660]   jiffies              <10ce50b40>
+[865647.709660]   next_to_watch.status <0>
+[865650.012994] e1000 0000:00:03.0 enp0s3: Detected Tx Unit Hang
+[865650.012994]   Tx Queue             <0>
+[865650.012994]   TDH                  <94>
+[865650.012994]   TDT                  <98>
+[865650.012994]   next_to_use          <98>
+[865650.012994]   next_to_clean        <94>
+[865650.012994] buffer_info[next_to_clean]
+[865650.012994]   time_stamp           <10ce5057f>
+[865650.012994]   next_to_watch        <97>
+[865650.012994]   jiffies              <10ce50d80>
+[865650.012994]   next_to_watch.status <0>
+[865651.804792] e1000 0000:00:03.0 enp0s3: Reset adapter
+[866039.357652] e1000 0000:00:03.0 enp0s3: Detected Tx Unit Hang
+[866039.357652]   Tx Queue             <0>
+[866039.357652]   TDH                  <53>
+[866039.357652]   TDT                  <57>
+[866039.357652]   next_to_use          <57>
+[866039.357652]   next_to_clean        <53>
+[866039.357652] buffer_info[next_to_clean]
+[866039.357652]   time_stamp           <10ce68799>
+[866039.357652]   next_to_watch        <56>
+[866039.357652]   jiffies              <10ce689b8>
+[866039.357652]   next_to_watch.status <0>
+[866041.693885] e1000 0000:00:03.0 enp0s3: Detected Tx Unit Hang
+[866041.693885]   Tx Queue             <0>
+[866041.693885]   TDH                  <53>
+[866041.693885]   TDT                  <57>
+[866041.693885]   next_to_use          <57>
+[866041.693885]   next_to_clean        <53>
+[866041.693885] buffer_info[next_to_clean]
+[866041.693885]   time_stamp           <10ce68799>
+[866041.693885]   next_to_watch        <56>
+[866041.693885]   jiffies              <10ce68c00>
+[866041.693885]   next_to_watch.status <0>
+[866042.725109] e1000 0000:00:03.0 enp0s3: Reset adapter
